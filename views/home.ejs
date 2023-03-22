@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MixMeet | Eldohub Techies Social Platform</title>
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <script src="./scripts/main.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <img src="./images/logo.png" alt="mixmeet logo" class="logo" />
+      <nav class="main-nav">
+        <span class="current-username"> <%=user.username%> </span>
+        <button class="current-user-nav-btn">
+          <img
+            src="./images/profiles<%=user.image_link%>.<%=user.image_type%>"
+            alt="user icon"
+          />
+          <!-- actual profile image -->
+          <span class="notification-count-main">3</span>
+        </button>
+
+        <div class="user-modal">
+          <p><%=user.bio%></p>
+          <a href="./mesages"
+            >Messages<span class="notification-count">3</span></a
+          >
+          <a href="/invite-friend">Invite Friend</a>
+          <a href="/update-profile">Update Profile</a>
+          <a href="/sign-out" class="sign-out-btn">Sign Out</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-title">
+        <h2>Recent Posts</h2>
+        <button class="new-post">+ new post</button>
+      </div>
+      <form action="/new-post" method="post" class="new-post-form">
+        <textarea name="post" id="post" cols="30" rows="10"></textarea>
+        <div>
+          <input  type="file" name="image" id="image">
+          <input type="submit" value="post">
+        </div>
+      </form>
+
+      <div class="posts">
+        <div class="post">
+          <div class="post-header">
+            <img class="post-owner-image" src="" alt="post owner" />
+            <div class="post-header-text">
+              <p class="post-owner-name">Heraniah</p>
+              <p class="post-owner-title">Web developer</p>
+            </div>
+          </div>
+          <div class="post-body">
+            <p class="post-message">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Architecto voluptates quo repellat autem officia assumenda iste
+              deserunt explicabo tenetur quod?
+            </p>
+            <img class="post-image" src="./images/image.png" alt="post image" />
+          </div>
+          <div class="post-footer">
+            <div class="post-footer-icons">
+              <img
+                src="./images/chatbox-outline.svg"
+                alt="chatbox outline icon"
+              />
+              <span class="notification-count">13 comments</span>
+              <img src="./images/thumbs-up-outline.svg" alt="thumbs up icon" />
+              <span class="notification-count">103 likes</span>
+              <img
+                src="./images/share-social-outline.svg"
+                alt="share social icon"
+              />
+              <span class="notification-count">11 shares</span>
+            </div>
+            <span class="post-footer-timeline">Thursday 24th July 2023</span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>&copy; Mixmeet @ <%=new Date().getFullYear()%></footer>
+    <script>
+      fetch("/all-users")
+        .then((res) => res.json())
+        .then((users) => {
+          users.forEach((user) => {
+            let li = document.createElement("li");
+            li.innerHTML = `<span style="font-weight: bold;"> ${user.username}</span> ---<span>${user.bio}</span>`;
+            document.querySelector(".all-users").append(li);
+          });
+        });
+    </script>
+  </body>
+</html>

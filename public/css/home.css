@@ -1,0 +1,150 @@
+/* header */
+.current-username {
+  font-size: 20px;
+}
+
+.current-user-nav-btn {
+  height: 40px;
+  width: 40px;
+  background: transparent;
+  border: none;
+  position: relative;
+  border-radius: 50%;
+}
+.current-user-nav-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.notification-count-main {
+  background-color: orangered;
+  color: white;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  padding-top: 3px;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+}
+
+.main-nav {
+  position: relative;
+}
+.user-modal {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  gap: 10px;
+  width: max-content;
+  background-color: white;
+}
+.user-modal.hide {
+  display: none;
+}
+.user-modal a {
+  color: #0b2249;
+}
+.user-modal p {
+  font-weight: bold;
+  color: #0b2249;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.notification-count-messages {
+  color: orangered;
+  padding-left: 16px;
+}
+/* css variables */
+.user-modal .sign-out-btn {
+  display: block;
+  width: 100%;
+  color: white;
+  background-color: #32a9fb;
+  border-radius: 5px;
+}
+
+/* main */
+main {
+  max-width: 700px;
+  margin: 0 auto;
+}
+/* page title */
+.page-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px;
+}
+.new-post {
+  background: transparent;
+  border: darkblue solid;
+  padding: 8px 16px;
+  color: inherit;
+  font-weight: bold;
+  border-radius: 6px;
+}
+/* new post form */
+.new-post-form div {
+  display: flex;
+  justify-content: space-between;
+}
+.new-post-form.hide {
+  display: none;
+}
+
+/* post  */
+.post {
+  text-align: left;
+  background-color: lightblue;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 20px;
+}
+.post-header {
+  display: flex;
+  padding: 16px;
+  gap: 16px;
+}
+.post-owner-image {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+.post-owner-title {
+  color: gray;
+}
+
+.post-image {
+  width: 100%;
+  font-size: 20px;
+  object-fit: cover;
+}
+.post-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+  align-items: center;
+  width: 100%;
+}
+.post-footer-icons {
+  display: flex;
+  gap: 16px;
+  height: 19px;
+  align-items: end;
+  gap: 3px;
+}
+.post-footer-icons img {
+  height: 100%;
+}
+.notification-count {
+  color: orangered;
+  font-size: 13px;
+  font-weight: bold;
+  margin-right: 16px;
+}

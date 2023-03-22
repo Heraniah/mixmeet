@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Mixmeet</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+  </head>
+
+  <body>
+    <header>
+      <img src="./images/logo.png" alt="mixmeet logo" class="logo" />
+      <nav>
+        <a href="/">Home</a>
+        <a href="/sign-in">Sign In</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Sign Up</h1>
+      <%if(locals.error){%>
+      <p style="color: orangered"><%=errorMessage%></p>
+      <%}%>
+      <form action="/sign-up" method="post" enctype="multipart/form-data">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required /> <br />
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required/> <br />
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required/> <br />
+
+        <label for="confirm">Confirm Password</label>
+        <input type="password" name="confirm" id="confirm" required /> <br />
+
+        <label for="image">Profile Image</label>
+        <input type="file" name="image" id="image" required/> <br />
+
+        <label for="bio">Biography </label>
+        <textarea name="bio" id="bio" cols="30" rows="10"></textarea> <br />
+
+        <input type="submit" value="Sign In" /> <br />
+      </form>
+    </main>
+    <footer>&copy; Mixmeet @ <%=new Date().getFullYear()%></footer>
+  </body>
+</html>
